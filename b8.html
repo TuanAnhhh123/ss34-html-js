@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Cell 1</th>
+          <th>Cell 2</th>
+          <th>Cell 3</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cell 1 row 1</td>
+          <td>Cell 2 row 1</td>
+          <td>Cell 3 row 1</td>
+          <td><button type="button">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Cell 1 row 2</td>
+          <td>Cell 2 row 2</td>
+          <td>Cell 3 row 2</td>
+          <td><button type="button">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Cell 1 row 3</td>
+          <td>Cell 2 row 3</td>
+          <td>Cell 3 row 3</td>
+          <td><button type="button">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      let buttons = document.querySelectorAll(".delete");
+      for (let button of buttons) {
+        button.addEventListener("click", function () {
+          this.parentNode.remove();
+        });
+      }
+      function deleteRow(event) {
+        let row = event.target.parentElement;
+        row.remove();
+      }
+      let deleteButtons = document.querySelectorAll("button[type='button']");
+      deleteButtons.forEach((button) => {
+        button.addEventListener("click", deleteRow);
+      });
+    </script>
+  </body>
+</html>
